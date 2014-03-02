@@ -62,6 +62,10 @@ pure-button pure-button-primary
 		$year=trim($_REQUEST['year']);
 		
 		$database=new DB;
+		if (($carName=="")AND($year=="")AND($model==""))
+		{
+		$sqlSelect = "SELECT DISTINCT(manufacturer) id,manufacturer, model, year FROM `fueldata` group by manufacturer order by manufacturer limit 0,50;";
+		}
 		if (($carName=="")AND($year!=""))
 		{
 		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `year` = '$year' limit 0,50;";
@@ -257,13 +261,13 @@ $k3=trim($_REQUEST['k3']);
 							];	
 			asort($city_consumption);
 			foreach ($city_consumption as $key => $val) {
-				$personalized_message=$key." has best city fuel consumption:".$val."/100km: $".$val*$gasprice;
+				$personalized_message=$key." has best city fuel consumption:".$val."/100km: $".$val*$gasprice/100;
 				break;
 			}
 			asort($hwy_consumption);
 			foreach ($hwy_consumption as $key => $val) {
 				$hc[$key]=$val;
-				$personalized_message.=$key." has the best hwy fuel consumption:".$val."/100km: $".$val*$gasprice;
+				$personalized_message.=$key." has the best hwy fuel consumption:".$val."/100km: $".$val*$gasprice/100;
 				break;
 			}
 			
