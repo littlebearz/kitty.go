@@ -84,9 +84,9 @@ pure-button pure-button-primary
 			echo "<div class=email-subject>";
 			echo "<h4 class=email-name>".$d['manufacturer']." | ".$d['model']." | ".$d['year']."</h4>";
 			echo "<a href=./index.php?carSearch=";
-			echo $d['manufacturer'];
+			echo urlencode($d['manufacturer']);
 			echo "&mod=";
-			echo $d['model'];
+			echo urlencode($d['model']);
 			echo "&yer=";
 			echo $d['year']."&k1=";
 			echo $d['id'];
@@ -95,9 +95,9 @@ pure-button pure-button-primary
 			echo "</a> | ";
 			
 			echo "<a href=./index.php?carSearch=";
-			echo $d['manufacturer'];
+			echo urlencode($d['manufacturer']);
 			echo "&mod=";
-			echo $d['model'];
+			echo urlencode($d['model']);
 			echo "&yer=";
 			echo $d['year']."&k2=";
 			echo $d['id'];
@@ -106,9 +106,9 @@ pure-button pure-button-primary
 			echo "</a> | ";
 			
 			echo "<a href=./index.php?carSearch=";
-			echo $d['manufacturer'];
+			echo urlencode($d['manufacturer']);
 			echo "&mod=";
-			echo $d['model'];
+			echo urlencode($d['model']);
 			echo "&yer=";
 			echo $d['year']."&k3=";
 			echo $d['id'];
