@@ -55,7 +55,7 @@ pure-button pure-button-primary
 
 		<div class="email-item email-item-selected">
 		<?php
-		$carName= $_REQUEST['carSearch']; 
+		$carName= strtoupper($_REQUEST['carSearch']); 
 		$year=trim($_REQUEST['year']);
 
 		$database=new DB;
@@ -66,9 +66,13 @@ pure-button pure-button-primary
 		}
 		if (($carName=="")AND($year!=""))
 		{
-		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `year` = '$year' limit 0,100;";
+		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `year` = '$year' limit 0,15;";
 		}
-		
+
+		if (($carName!="")AND($year!=""))
+		{
+		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `manufacturer` like '%$carName%' and `year` = '$year' limit 0,20;";
+		}
 		$data = $database->getQuery($sqlSelect); // This will run the SQL statment and return and associative array.
 			foreach($data as $d)
 			{
