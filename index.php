@@ -258,7 +258,7 @@ $k3=trim($_REQUEST['k3']);
 			asort($hwy_consumption);
 			foreach ($hwy_consumption as $key => $val) {
 				$hc[$key]=$val;
-				$personalized_message.=$key." has the best hwy fuel consumption:".$val."/100km: $"$val*$gasprice;
+				$personalized_message.=$key." has the best hwy fuel consumption:".$val."/100km: $".$val*$gasprice;
 				break;
 			}
 			
