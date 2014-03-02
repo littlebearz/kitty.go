@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('database.php');
+include('static.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -251,15 +252,16 @@ $k3=trim($_REQUEST['k3']);
 							];	
 			asort($city_consumption);
 			foreach ($city_consumption as $key => $val) {
-				$personalized_message=$key." has the best city fuel consumption:".$val."/100km";
+				$personalized_message=$key." has best city fuel consumption:".$val."/100km: $".$val*$gasprice;
 				break;
 			}
 			asort($hwy_consumption);
 			foreach ($hwy_consumption as $key => $val) {
 				$hc[$key]=$val;
-				$personalized_message.=$key." has the best hwy fuel consumption:".$val."/100km";
+				$personalized_message.=$key." has the best hwy fuel consumption:".$val."/100km: $"$val*$gasprice;
 				break;
 			}
+			
 			include('personalize.php');?>
             </div>
         </div>
