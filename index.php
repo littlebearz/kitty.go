@@ -37,8 +37,9 @@ pure-button pure-button-primary
 			<div class="pure-menu pure-menu-open">
 			<form action="index.php" method="post" class="pure-form pure-form-stacked"> 
 				<a class="pure-menu-heading" href="/">Kitty Fuel</a>
-				<input type="text" name="carSearch" maxlength="10" placeholder="Make" class="pure-u-4-5 pure-input-rounded"> 
-				<input type="text" name="year" maxlength="4" placeholder="Year" class="pure-u-4-5 pure-input-rounded">
+				<input type="text" name="carSearch" maxlength="10" placeholder="Make" class="pure-u-4-5 pure-input-rounded" value="<?php echo $carName;?>"> 
+				<input type="text" name="model" maxlength="10" placeholder="Model" class="pure-u-4-5 pure-input-rounded" value="<?php echo $model;?>"> 
+				<input type="text" name="year" maxlength="4" placeholder="Year" class="pure-u-4-5 pure-input-rounded" value="<?php echo $year;?>">
 				<input type="submit" value="Search" class="pure-button pure-button-primary pure-u-4-5">
 			</form>
 			<?php
@@ -57,21 +58,25 @@ pure-button pure-button-primary
 		<div class="email-item email-item-selected">
 		<?php
 		$carName= strtoupper($_REQUEST['carSearch']); 
+		$model= strtoupper($_REQUEST['model']); 
 		$year=trim($_REQUEST['year']);
 		
 		$database=new DB;
-		$sqlSelect = "SELECT DISTINCT BINARY(manufacturer) id,manufacturer, model, year FROM `fueldata` order by manufacturer limit 0,15;"; //Generic
 		if (($carName=="")AND($year!=""))
 		{
-		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `year` = '$year' limit 0,15;";
+		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `year` = '$year' limit 0,50;";
 		}
 		if (($carName!="")AND($year==""))
 				{
-		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `manufacturer` like '%$carName%' limit 0,20;";
+		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `manufacturer` like '%$carName%' limit 0,50;";
 		}
 		if (($carName!="")AND($year!=""))
 		{
-		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `manufacturer` like '%$carName%' and `year` = '$year' limit 0,20;";
+		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `manufacturer` like '%$carName%' and `year` = '$year' limit 0,50;";
+		}
+		if (($carName!="")AND($year!="")AND($model!=""))
+		{
+		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `manufacturer` like '%$carName%' and `year` = '$year' and model like '%$model%' limit 0,50;";
 		}
 		$data = $database->getQuery($sqlSelect); // This will run the SQL statment and return and associative array.
 			foreach($data as $d)
