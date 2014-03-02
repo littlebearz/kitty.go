@@ -37,7 +37,7 @@ pure-button pure-button-primary
 			<form action="index.php" method="post" class="pure-form pure-form-stacked"> 
 				<a class="pure-menu-heading" href="/">Kitty Fuel</a>
 				<input type="text" name="carSearch" maxlength="10" placeholder="Make" class="pure-u-4-5 pure-input-rounded"> 
-				<!--<input type="text" name="yearSearch" maxlength="4" placeholder="Year" class="pure-u-4-5 pure-input-rounded">-->
+				<input type="text" name="yearSearch" maxlength="4" placeholder="Year" class="pure-u-4-5 pure-input-rounded">
 				<input type="submit" value="Search" class="pure-button pure-button-primary pure-u-4-5">
 			</form>
 			<?php
