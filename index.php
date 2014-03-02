@@ -62,7 +62,7 @@ pure-button pure-button-primary
 		if ($carName=="")
 		$sqlSelect = "SELECT DISTINCT BINARY(manufacturer) id,manufacturer, model, year FROM `fueldata` order by manufacturer limit 0,33;";
 		else
-		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE manufacturer like '%$carName%' limit 0,100;";
+		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE manufacturer like '%$carName%' and year like '%$year%' limit 0,100;";
 		$data = $database->getQuery($sqlSelect); // This will run the SQL statment and return and associative array.
 			foreach($data as $d)
 			{
