@@ -10,6 +10,8 @@ Kitty.go
 
 *Using Pure CSS Layout from Yahoo
 
+*Using OOP'ed Database PDO by Wrenbjor
+
 *Data Source: http://data.gc.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64
 
 *Data Year 2014 record has been fixed, the official data set has 2104 as the year.
