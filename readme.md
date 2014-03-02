@@ -12,6 +12,10 @@ Kitty.go
 
 *Data Year 2014 record has been fixed, the official data set has 2104 as the year.
 
+Roadmap
+=======
+*Calculate cost of gas price based on GPS data and vehicle type combined with current gas price in user's geolocation. The gas price data is not available from data.gc.ca
+
 License
 -------
 Chart.js was taken down on the 19th March. It is now back online for good and IS available under MIT license.
