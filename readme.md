@@ -2,6 +2,8 @@ Kitty.go
 =======
 *Display fuel usage for vehicle between 2000 and 2014.
 
+*Send personalized SMS based on the top of your 3 selection for best HWY and CITY Fuel efficiency. Hopefully the bill doesn't get too skyrocketed.
+
 *Made by Daniel Peter Dias, Andrew Ivan Draganjac, XiaoXiong Weng
 
 *Using Chart.js for Charting with Javascript
