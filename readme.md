@@ -2,6 +2,8 @@ Kitty.go
 =======
 *Display fuel usage for vehicle between 2000 and 2014.
 
+*Made by Daniel Peter Dias, Andrew Ivan Draganjac, XiaoXiong Weng
+
 *Using Chart.js for Charting with Javascript
 
 *Using Pure CSS Layout from Yahoo
