@@ -37,7 +37,7 @@ pure-button pure-button-primary
 			<form action="index.php" method="post" class="pure-form pure-form-stacked"> 
 				<a class="pure-menu-heading" href="/">Kitty Fuel</a>
 				<input type="text" name="carSearch" maxlength="10" placeholder="Make" class="pure-u-4-5 pure-input-rounded"> 
-				<input type="text" name="yearSearch" maxlength="4" placeholder="Year" class="pure-u-4-5 pure-input-rounded">
+				<input type="text" name="year" maxlength="4" placeholder="Year" class="pure-u-4-5 pure-input-rounded">
 				<input type="submit" value="Search" class="pure-button pure-button-primary pure-u-4-5">
 			</form>
 			<?php
@@ -55,14 +55,20 @@ pure-button pure-button-primary
 
 		<div class="email-item email-item-selected">
 		<?php
-		$carName= $_REQUEST['carSearch'];
-		if (($carName!=null)||($carName==""))
-		{
+		$carName= $_REQUEST['carSearch']; 
+		$year=trim($_REQUEST['year']);
+
 		$database=new DB;
 		if ($carName=="")
-		$sqlSelect = "SELECT DISTINCT BINARY(manufacturer) id,manufacturer, model, year FROM `fueldata` order by manufacturer limit 0,33;";
-		else
-		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE manufacturer like '%$carName%' and year like '%$year%' limit 0,100;";
+		{
+		$sqlSelect = "SELECT DISTINCT BINARY(manufacturer) id,manufacturer, model, year FROM `fueldata` order by manufacturer limit 0,15;";
+		
+		}
+		if (($carName=="")AND($year!=""))
+		{
+		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `year` = '$year' limit 0,100;";
+		}
+		
 		$data = $database->getQuery($sqlSelect); // This will run the SQL statment and return and associative array.
 			foreach($data as $d)
 			{
@@ -102,7 +108,7 @@ pure-button pure-button-primary
 			echo "</a>";
 			echo "</div>";
 			}
-		}
+		
 		?>
 		</div>
 
