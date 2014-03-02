@@ -14,7 +14,8 @@ Kitty.go
 
 Roadmap
 =======
-*Calculate cost of gas price based on GPS data and vehicle type combined with current gas price in user's geolocation. The gas price data is not available from data.gc.ca
+*Calculate cost of gas price based on GPS data and vehicle type combined with current gas price in user's geolocation. The gas price data is not available from data.gc.ca.  Assuming 123.4 cents per litre.
+*Grab price data from petro-canada.ca
 
 License
 -------
