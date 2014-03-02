@@ -57,18 +57,17 @@ pure-button pure-button-primary
 		<?php
 		$carName= strtoupper($_REQUEST['carSearch']); 
 		$year=trim($_REQUEST['year']);
-
-		$database=new DB;
-		if ($carName=="")
-		{
-		$sqlSelect = "SELECT DISTINCT BINARY(manufacturer) id,manufacturer, model, year FROM `fueldata` order by manufacturer limit 0,15;";
 		
-		}
+		$database=new DB;
+		$sqlSelect = "SELECT DISTINCT BINARY(manufacturer) id,manufacturer, model, year FROM `fueldata` order by manufacturer limit 0,15;"; //Generic
 		if (($carName=="")AND($year!=""))
 		{
 		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `year` = '$year' limit 0,15;";
 		}
-
+		if (($carName!="")AND($year==""))
+				{
+		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `manufacturer` like '%$carName%' limit 0,20;";
+		}
 		if (($carName!="")AND($year!=""))
 		{
 		$sqlSelect = "SELECT id,manufacturer, model, year FROM `fueldata` WHERE `manufacturer` like '%$carName%' and `year` = '$year' limit 0,20;";
