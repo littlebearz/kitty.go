@@ -1,5 +1,7 @@
 Kitty.go
 =======
+
+[![Join the chat at https://gitter.im/littlebearz/kitty.go](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/littlebearz/kitty.go?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 *Display fuel usage for vehicle between 2000 and 2014.
 
 *Send personalized SMS based on the top of your 3 selection for best HWY and CITY Fuel efficiency. Hopefully the bill doesn't get too skyrocketed.
